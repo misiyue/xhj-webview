@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>加载中...</title>
+  <style>
+    html,
+    body {
+      margin: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #000;
+    }
+
+    iframe {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .error {
+      box-sizing: border-box;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      padding: 24px;
+      color: #666;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="error" class="error"></div>
+  <script>
+    (function () {
+      window.PopopApp = window.PopopApp || {};
+
+      var allowedDomains = ['popop.tv', 'fundof.tv'];
+      var params = new URLSearchParams(window.location.search);
+      var target = params.get('url');
+
+      function showError(message) {
+        var error = document.getElementById('error');
+        error.textContent = message;
+        error.style.display = 'flex';
+      }
+
+      if (!target) {
+        showError('缺少 url 参数');
+        return;
+      }
+
+      var parsed;
+      try {
+        parsed = new URL(target);
+      } catch (error) {
+        showError('链接无效');
+        return;
+      }
+
+      if (parsed.protocol !== 'http:' && parsed.protocol !== 'https:') {
+        showError('仅支持 http/https 链接');
+        return;
+      }
+
+      var host = parsed.hostname.toLowerCase();
+      var allowed = allowedDomains.some(function (domain) {
+        return host === domain || host.endsWith('.' + domain);
+      });
+
+      if (!allowed) {
+        window.location.replace(parsed.toString());
+        return;
+      }
+
+      var iframe = document.createElement('iframe');
+      iframe.src = parsed.toString();
+      iframe.allow = 'autoplay; fullscreen; encrypted-media; picture-in-picture';
+      iframe.referrerPolicy = 'origin';
+      document.body.appendChild(iframe);
+
+      iframe.addEventListener('load', function () {
+        try {
+          iframe.contentWindow.postMessage({
+            source: 'xiaohj_popop_shell',
+            PopopApp: window.PopopApp || {}
+          }, '*');
+        } catch (error) {
+          // 跨域时由目标站点自行识别父页 PopopApp。
+        }
+      });
+    })();
+  </script>
+</body>
+
+</html>

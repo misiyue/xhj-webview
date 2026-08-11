@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="327" height="191" viewBox="0 0 327 191" fill="none">
+  <rect x="1.5" y="1.5" width="324" height="188" rx="32" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.24)" stroke-width="3" stroke-dasharray="10 10"/>
+  <path d="M27 143C68 95 106 76 144 86C184 96 220 72 300 30" stroke="rgba(255,255,255,0.18)" stroke-width="3" stroke-linecap="round" stroke-dasharray="5 9"/>
+  <text x="163.5" y="92" fill="rgba(255,255,255,0.88)" font-family="Arial, sans-serif" font-size="20" font-weight="700" text-anchor="middle">SCENE SVG</text>
+  <text x="163.5" y="117" fill="rgba(255,255,255,0.52)" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">replace this file later</text>
+</svg>

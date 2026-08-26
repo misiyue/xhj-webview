@@ -180,7 +180,7 @@ const RESOURCES = {"app_token_bridge.js": "f3bbfc6bae1dfdffde2977e42fbdf74c",
 "favicon.png": "d91237e87c23368ba999c4ee14bb1aab",
 "fingerprintjs.iife.min.js": "821bd9886fad96a6678f4f16bfcb649d",
 "flutter.js": "24bc71911b75b5f8135c949e27a2984e",
-"flutter_bootstrap.js": "284aa5957ef9f2d59019cdf34373e733",
+"flutter_bootstrap.js": "665cefa1d114e6720783e98e0b462e82",
 "icons/Icon-192.png": "b621b43203e72be1a1b657f17707b94e",
 "icons/Icon-512.png": "fd63c6a9cbb864911424dd5e021fad52",
 "icons/Icon-maskable-192.png": "b621b43203e72be1a1b657f17707b94e",
@@ -188,11 +188,11 @@ const RESOURCES = {"app_token_bridge.js": "f3bbfc6bae1dfdffde2977e42fbdf74c",
 "index.html": "8953ede50b59945908272b527a6b2eb1",
 "/": "8953ede50b59945908272b527a6b2eb1",
 "logo.png": "e6656ba073ce3649fec1e6f735f0b5d0",
-"main.dart.js": "a9e15f41f20210b3ae65c0b848e823b1",
+"main.dart.js": "d30744d0525371439c2c2d0e6a603748",
 "manifest.json": "379172929dbebe32fd25b1e5fdf340fd",
 "popop_client_shell.html": "60cdbb3254b10f1dfabb9a35407ef05e",
 "pwa_install_bridge.js": "048d6e153ad188c2efae7a98b2fa930d",
-"version.json": "c9597d78e9ec563509525b43fcbad6ab"};
+"version.json": "7dd956f38d7ed229c1255924c1864732"};
 // The application shell files that are downloaded before a service worker can
 // start.
 const CORE = ["main.dart.js",

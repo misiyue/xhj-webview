@@ -58,9 +58,16 @@
     }
 
     try {
+      const previousToken = window.localStorage.getItem(storageKey);
+      const hadPendingLogout =
+        window.localStorage.getItem(logoutMarkerKey) === "1";
       window.localStorage.setItem(storageKey, normalizedToken);
       window.localStorage.removeItem(logoutMarkerKey);
-      window.dispatchEvent(new CustomEvent(tokenEventName));
+      // The parent retries until it sees an ACK. Do not restart Flutter's
+      // auth import queue for an identical session delivery.
+      if (previousToken !== normalizedToken || hadPendingLogout) {
+        window.dispatchEvent(new CustomEvent(tokenEventName));
+      }
       return true;
     } catch (error) {
       console.warn("Unable to receive App token", error);
@@ -87,6 +94,19 @@
       trustedParentOrigins.indexOf(event.origin.toLowerCase()) !== -1;
   }
 
+  function acknowledgeSessionDelivery(event, deliveryId) {
+    if (typeof deliveryId !== "string" || !deliveryId) {
+      return;
+    }
+
+    event.source.postMessage(JSON.stringify({
+      channel: bridgeChannel,
+      version: bridgeVersion,
+      type: "ACK",
+      deliveryId: deliveryId,
+    }), event.origin);
+  }
+
   window.addEventListener("message", function (event) {
     if (!isTrustedParent(event) || typeof event.data !== "string") {
       return;
@@ -106,9 +126,13 @@
     }
 
     if (message.type === "TOKEN") {
-      window.receiveTokenFromApp(message.token);
+      if (window.receiveTokenFromApp(message.token)) {
+        acknowledgeSessionDelivery(event, message.deliveryId);
+      }
     } else if (message.type === "LOGOUT") {
-      clearTokenFromApp();
+      if (clearTokenFromApp()) {
+        acknowledgeSessionDelivery(event, message.deliveryId);
+      }
     }
   });
 

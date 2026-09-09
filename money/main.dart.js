@@ -44476,7 +44476,7 @@ _.b=b
 _.d=_.c=$},
 b7N:function b7N(a){this.a=a},
 b7O:function b7O(a){this.a=a},
-c0U(a){return new A.EC(a,A.FI(A.MJ("https://app.xhj.im",B.fC,B.aQQ,B.fC,new A.aCZ())))},
+c0U(a){return new A.EC(a,A.FI(A.MJ("https://app.xhjim.app",B.fC,B.aQQ,B.fC,new A.aCZ())))},
 EC:function EC(a,b){this.a=a
 this.b=b},
 aCZ:function aCZ(){},
@@ -44573,7 +44573,7 @@ _.e=e},
 VE:function VE(){},
 b83:function b83(){},
 b84:function b84(){},
-c5c(a){return new A.Gy(a,A.FI(A.MJ("https://newapi.xhj.im/wallet",B.fC,null,B.fC,new A.aRh())),A.FI(A.MJ("",B.Cb,null,B.Cb,new A.aRi())))},
+c5c(a){return new A.Gy(a,A.FI(A.MJ("https://newapi.xhjim.app/wallet",B.fC,null,B.fC,new A.aRh())),A.FI(A.MJ("",B.Cb,null,B.Cb,new A.aRi())))},
 Gy:function Gy(a,b,c){this.a=a
 this.b=b
 this.c=c},
@@ -61563,7 +61563,7 @@ $3$backgroundColor$color$fontWeight(a,b,c){return this.F(this,A.C("call","$3$bac
 $1$4$data$onSendProgress$options(a,b,c,d,e){return this.F(this,A.C("call","$1$4$data$onSendProgress$options",0,[a,b,c,d,e],["data","onSendProgress","options"],1))},
 $3$appealMaterials$id$reason(a,b,c){return this.F(this,A.C("call","$3$appealMaterials$id$reason",0,[a,b,c],["appealMaterials","id","reason"],0))},
 $1$pathSegments(a){return this.F(this,A.C("call","$1$pathSegments",0,[a],["pathSegments"],0))},
-$1$id(a){return this.F(this,A.C("call","$1$id",0,[a],["id"],0))},
+$1$code(a){return this.F(this,A.C("call","$1$code",0,[a],["code"],0))},
 $4$context$icon$subtitle$title(a,b,c,d){return this.F(this,A.C("call","$4$context$icon$subtitle$title",0,[a,b,c,d],["context","icon","subtitle","title"],0))},
 $6$controller$errorText$hintText$label$onChanged$required(a,b,c,d,e,f){return this.F(this,A.C("call","$6$controller$errorText$hintText$label$onChanged$required",0,[a,b,c,d,e,f],["controller","errorText","hintText","label","onChanged","required"],0))},
 $6$controller$hintText$isPassword$label$onChanged$required(a,b,c,d,e,f){return this.F(this,A.C("call","$6$controller$hintText$isPassword$label$onChanged$required",0,[a,b,c,d,e,f],["controller","hintText","isPassword","label","onChanged","required"],0))},
@@ -149472,7 +149472,7 @@ l=a0.ae(0,$.bEW(),t.gb)
 k=m.yK(n.a.d)
 j=m.vj()
 i=m.Ju(n.a.d)
-h=l.Bf(1)
+h=l.Bf("0001")
 s=7
 return A.f(A.js(A.c([k,j],t.c9),!1,t.K),$async$zh)
 case 7:g=a7
@@ -149777,7 +149777,7 @@ $0(){var s=this.a
 s.ax=!s.ax},
 $S:0}
 A.bfi.prototype={
-$1(a){return new A.qb(1,"C2C\u4ea4\u6613\u89c4\u5219",this.a.ay,null)},
+$1(a){return new A.qb("0001","C2C\u4ea4\u6613\u89c4\u5219",this.a.ay,null)},
 $S:149}
 A.bfl.prototype={
 $1(a){return new A.EX(a.a,a.b,this.a.aPG(a))},
@@ -151519,7 +151519,7 @@ aT0(a){A.ai(a,!1).co(A.ca(new A.aGk(this),null,t.z))},
 t(a){var s=this,r=null,q=t.p
 return A.at(A.c([A.ax(B.C,new A.F(15,15,A.bU(s.c?u.B:u.O,!1,r,B.Y,15,r,15),r),B.r,!1,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,new A.aGl(s),r,r,r,!1,B.u),new A.F(8,r,r,r),A.aR(A.xV(A.c([A.ax(B.C,A.L("\u6211\u5df2\u9605\u8bfb\u5e76\u540c\u610f",r,r,r,r,r,A.a9(r,r,B.c2,r,r,r,r,r,r,r,r,13,r,r,B.n,r,2,!0,r,r,r,r,r,r,r,r),r,r,r,r),B.r,!1,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,new A.aGm(s),r,r,r,!1,B.u),A.ax(B.C,A.L("\u300aC2C\u4ea4\u6613\u89c4\u5219\u300b",r,r,r,r,r,A.a9(r,r,B.c2,r,r,r,r,r,r,r,r,13,r,r,B.n,r,2,!0,r,r,r,r,r,r,r,r).cZ(B.H),r,r,r,r),B.r,!1,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,new A.aGn(s,a),r,r,r,!1,B.u)],q),B.km,0,0),1)],q),B.m,B.f,B.k,0)}}
 A.aGk.prototype={
-$1(a){return new A.qb(1,"C2C\u4ea4\u6613\u89c4\u5219",null,null)},
+$1(a){return new A.qb("0001","C2C\u4ea4\u6613\u89c4\u5219",null,null)},
 $S:149}
 A.aGl.prototype={
 $0(){var s=this.a
@@ -155879,7 +155879,7 @@ k.a=null
 p=4
 i=k
 s=7
-return A.f(n.gaw().ae(0,$.bEW(),t.gb).Bf(3),$async$F2)
+return A.f(n.gaw().ae(0,$.bEW(),t.gb).Bf("0003"),$async$F2)
 case 7:i.a=b
 p=2
 s=6
@@ -155925,7 +155925,7 @@ r.push(A.mN(B.bt0,m,n.w?n.gaEP():m,s))
 return A.dh(B.bxP,B.ai,A.cP(!0,A.eI(new A.ee(new A.aj(0,1/0,k.a.b-44-j.r.b-l.r.d-42,1/0),new A.qH(A.ah(r,B.ap,B.f,B.k,m,B.o),m),m),m,m,m,B.CB,m,B.ac),B.W,!1),m,!1,m)}}
 A.bfQ.prototype={
 $1(a){var s=this.a.a
-return new A.qb(3,(s==null?null:B.c.N(s.b).length!==0)===!0?B.c.N(s.b):"\u300a\u8d26\u53f7\u6ce8\u9500\u534f\u8bae\u300b",s,null)},
+return new A.qb("0003",(s==null?null:B.c.N(s.b).length!==0)===!0?B.c.N(s.b):"\u300a\u8d26\u53f7\u6ce8\u9500\u534f\u8bae\u300b",s,null)},
 $S:149}
 A.bfR.prototype={
 $1(a){return B.a7H},
@@ -159218,7 +159218,7 @@ A.VC.prototype={
 t(a){var s=this,r=null,q=A.a0(8),p=t.p
 return A.ae(r,A.at(A.c([new A.akc(s.c,r),new A.F(8,r,r,r),A.aR(A.ah(A.c([A.L(s.d,r,r,r,r,r,B.fr,r,r,r,r),new A.F(r,6,r,r),A.L(s.e,r,r,r,r,r,B.yz,r,r,r,r)],p),B.E,B.bn,B.k,r,B.o),1),A.ah(A.c([new A.F(75,r,A.L(s.f,r,r,r,r,r,A.a9(r,r,s.r,r,r,r,r,r,r,r,r,15,r,r,B.a0,r,1,!0,r,r,r,r,r,r,r,r),B.bl,r,r,r),r),new A.F(r,6,r,r),A.L("USDT",r,r,r,r,r,B.yz,r,r,r,r)],p),B.d0,B.bn,B.k,r,B.o)],p),B.m,B.f,B.k,0),B.h,r,B.a3K,new A.a7(B.j,r,r,q,r,r,r,B.p),r,r,r,B.Cp,r,r,r)}}
 A.EA.prototype={
-aAQ(a,b,c){var s=this,r=A.FI(A.MJ("https://app.xhj.im",B.fC,A.U(["Content-Type","application/json"],t.N,t.z),B.fC,new A.aCK()))
+aAQ(a,b,c){var s=this,r=A.FI(A.MJ("https://app.xhjim.app",B.fC,A.U(["Content-Type","application/json"],t.N,t.z),B.fC,new A.aCK()))
 s.a!==$&&A.bu()
 s.a=r
 r=r.a0G$
@@ -160875,7 +160875,7 @@ Bf(a){return this.b8e(a)},
 b8e(a){var s=0,r=A.p(t.pD),q,p=this,o,n,m,l,k,j
 var $async$Bf=A.l(function(b,c){if(b===1)return A.m(c,r)
 for(;;)switch(s){case 0:s=3
-return A.f(p.a.rr("/api/v1/notice/article",A.U(["id",a],t.N,t.z),!1),$async$Bf)
+return A.f(p.a.rr("/api/v1/notice/article",A.U(["code",a],t.N,t.z),!1),$async$Bf)
 case 3:m=p.aIv(c.a)
 l=J.aE(m)
 k=A.bVK(l.i(m,"id"))
@@ -161281,7 +161281,7 @@ $1(a){var s=a.ck($.El(),t.uN)
 return new A.J8(new A.aIl(s),new A.aYh(s))},
 $S:1030}
 A.Ji.prototype={
-aBo(a){var s=A.FI(A.MJ("https://newapi.xhj.im/wallet",B.fC,A.U(["Content-Type","application/json"],t.N,t.z),B.fC,new A.b7F()))
+aBo(a){var s=A.FI(A.MJ("https://newapi.xhjim.app/wallet",B.fC,A.U(["Content-Type","application/json"],t.N,t.z),B.fC,new A.b7F()))
 this.b!==$&&A.bu()
 this.b=s
 s=s.a0G$
@@ -161289,7 +161289,7 @@ s.C(s,new A.Q3(new A.b7G(this),new A.b7H(),new A.b7I(),null,null,null))},
 ad1(a){var s=B.c.N(a)
 if(s.length>=8)return s
 return B.c.c1(s,8,"0")},
-aDm(a){var s,r=A.eY("https://newapi.xhj.im/wallet",0,null),q=t.N,p=A.hV(r.grp(),!0,q)
+aDm(a){var s,r=A.eY("https://newapi.xhjim.app/wallet",0,null),q=t.N,p=A.hV(r.grp(),!0,q)
 if(p.length!==0&&B.b.gS(p)==="wallet")p.pop()
 s=A.c(a.split("/"),t.s)
 q=A.ac(p,q)
@@ -161655,7 +161655,7 @@ break
 case 13:n.f=B.z0
 h=n.e
 h.C(0,B.z0)
-l="wss://app.xhj.im/wss/default.io?token="+m
+l="wss://app.xhjim.app/wss/default.io?token="+m
 n.a=A.c0H(A.bFu(A.eY(l,0,null),null))
 n.f=B.iH
 h.C(0,B.iH)
@@ -167064,7 +167064,7 @@ B.a5K=new A.a53(null)
 B.a5L=new A.N0("\u5546\u5bb6\u8ba4\u8bc1",null)
 B.a5M=new A.N0("\u7535\u5b50\u90ae\u7bb1",null)
 B.a5N=new A.ET(null,null)
-B.a5O=new A.qb(2,"\u5c0f\u706b\u7bad\u5546\u6237\u6ce8\u9500\u987b\u77e5",null,null)
+B.a5O=new A.qb("0002","\u5c0f\u706b\u7bad\u5546\u6237\u6ce8\u9500\u987b\u77e5",null,null)
 B.rw=new A.a55(0,"buyer")
 B.A4=new A.a55(1,"seller")
 B.A6=new A.mz(1,"\u6211\u4e0d\u60f3\u4e70\u4e86")

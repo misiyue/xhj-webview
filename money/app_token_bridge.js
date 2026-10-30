@@ -8,6 +8,7 @@
   const defaultTrustedParentOrigins = [
     "https://app.xhj.im",
     "https://testapp.xhj.im",
+    "https://h5.xhjim.app",
   ];
   const configuredTrustedParentOrigins = Array.isArray(
     window.XHJ_AUTH_BRIDGE_TRUSTED_PARENT_ORIGINS,
@@ -94,21 +95,42 @@
       trustedParentOrigins.indexOf(event.origin.toLowerCase()) !== -1;
   }
 
+  function logWalletBridge(message, detail) {
+    console.warn("[xhj-auth-bridge][wallet]", message, detail || "");
+  }
+
+  function postBridgeMessage(target, message, targetOrigin) {
+    try {
+      target.postMessage(JSON.stringify(message), targetOrigin);
+      return true;
+    } catch (error) {
+      logWalletBridge("向父页面发送消息失败", {
+        type: message.type,
+        targetOrigin: targetOrigin,
+        error: error,
+      });
+      return false;
+    }
+  }
+
   function acknowledgeSessionDelivery(event, deliveryId) {
     if (typeof deliveryId !== "string" || !deliveryId) {
+      logWalletBridge("缺少 deliveryId，未回 ACK", {
+        origin: event.origin,
+      });
       return;
     }
 
-    event.source.postMessage(JSON.stringify({
+    postBridgeMessage(event.source, {
       channel: bridgeChannel,
       version: bridgeVersion,
       type: "ACK",
       deliveryId: deliveryId,
-    }), event.origin);
+    }, event.origin);
   }
 
   window.addEventListener("message", function (event) {
-    if (!isTrustedParent(event) || typeof event.data !== "string") {
+    if (typeof event.data !== "string") {
       return;
     }
 
@@ -116,31 +138,66 @@
     try {
       message = JSON.parse(event.data);
     } catch (_) {
+      if (event.data.indexOf(bridgeChannel) !== -1) {
+        logWalletBridge("无法解析父页面消息", { origin: event.origin });
+      }
       return;
     }
 
-    if (!message ||
-        message.channel !== bridgeChannel ||
-        message.version !== bridgeVersion) {
+    if (!message || message.channel !== bridgeChannel) {
+      return;
+    }
+
+    if (!isTrustedParent(event)) {
+      logWalletBridge("父页面来源不受信任，已忽略 token", {
+        origin: event.origin,
+        trustedParentOrigins: trustedParentOrigins,
+        type: message.type,
+      });
+      return;
+    }
+
+    if (message.version !== bridgeVersion) {
+      logWalletBridge("协议版本不匹配", {
+        origin: event.origin,
+        expectedVersion: bridgeVersion,
+        actualVersion: message.version,
+        type: message.type,
+      });
       return;
     }
 
     if (message.type === "TOKEN") {
       if (window.receiveTokenFromApp(message.token)) {
         acknowledgeSessionDelivery(event, message.deliveryId);
+      } else {
+        logWalletBridge("写入登录态失败，未回 ACK", {
+          origin: event.origin,
+          deliveryId: message.deliveryId,
+        });
       }
     } else if (message.type === "LOGOUT") {
       if (clearTokenFromApp()) {
         acknowledgeSessionDelivery(event, message.deliveryId);
+      } else {
+        logWalletBridge("清除登录态失败，未回 ACK", {
+          origin: event.origin,
+          deliveryId: message.deliveryId,
+        });
       }
+    } else {
+      logWalletBridge("收到无法处理的父页面消息", {
+        origin: event.origin,
+        type: message.type,
+      });
     }
   });
 
   if (window.parent !== window) {
-    window.parent.postMessage(JSON.stringify({
+    postBridgeMessage(window.parent, {
       channel: bridgeChannel,
       version: bridgeVersion,
       type: "READY",
-    }), "*");
+    }, "*");
   }
 })();
